@@ -14,9 +14,23 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development')
 const Koa = require("koa");
 const bodyParser = require("koa-bodyparser");
 const chalk = require("chalk");
+const graphqlHTTP = require('koa-graphql');
+// var { graphql, buildSchema } = require('graphql');
+const graphql_1 = require("graphql");
 const routes_1 = require("./routes");
 const app = new Koa();
 const port = process.env.PORT || 5555;
+const MyGraphQLSchema = graphql_1.buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+var root = { hello: () => 'Hello world!' };
+routes_1.default.all('/graphql', graphqlHTTP({
+    schema: MyGraphQLSchema,
+    rootValue: root,
+    graphiql: true
+}));
 app.use((ctx, next) => __awaiter(this, void 0, void 0, function* () {
     const start = Date.now();
     yield next();

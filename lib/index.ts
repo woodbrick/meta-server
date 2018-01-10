@@ -5,21 +5,16 @@ import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
 import * as chalk from 'chalk';
 const graphqlHTTP = require('koa-graphql');
-var { graphql, buildSchema } = require('graphql');
+import { graphql, buildSchema } from 'graphql';
+import schema from './schema'
 
 import router from './routes';
 
 const app = new Koa();
 const port = process.env.PORT || 5555;
 
-const MyGraphQLSchema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
 router.all('/graphql', graphqlHTTP({
-  schema: MyGraphQLSchema,
+  schema: schema,
   graphiql: true
 }));
 
