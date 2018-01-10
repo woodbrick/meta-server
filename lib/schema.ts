@@ -26,7 +26,7 @@ let schema = new GraphQLSchema({
         type: GraphQLInt,
         description: 'Update the count',
         resolve: function() {
-          return count++;
+          return ++count;
         }
       }
     }
