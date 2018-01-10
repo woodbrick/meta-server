@@ -1,0 +1,50 @@
+{
+  "name": "meta-server",
+  "version": "0.0.1",
+  "description": "support auto generator api",
+  "main": "index.js",
+  "author": "William <frankyf@126.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "tsc && mocha build/test",
+    "postinstall": "npm run build",
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev-server": "nodemon -w lib -x ts-node lib/index.ts",
+    "lint": "tslint lib/**/*.ts"
+  },
+  "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/form-data": "2.2.1",
+    "@types/koa": "^2.0.43",
+    "@types/koa-bodyparser": "^3.0.26",
+    "@types/koa-router": "^7.0.27",
+    "@types/node": "^9.3.0",
+    "chalk": "^2.3.0",
+    "dotenv": "^4.0.0",
+    "graphql": "^0.12.3",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-graphql": "^0.7.3",
+    "koa-router": "^7.3.0"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.19",
+    "@types/chai": "^4.1.0",
+    "@types/mocha": "^2.2.46",
+    "@types/sinon": "^4.1.2",
+    "@types/sinon-chai": "^2.7.29",
+    "@types/superagent": "^3.5.6",
+    "@types/supertest-as-promised": "^2.0.35",
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.14.10",
+    "sinon": "^4.1.4",
+    "sinon-chai": "^2.14.0",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
+  }
+}
